@@ -7,11 +7,11 @@ const Index = () => {
   const [selectedBg, setSelectedBg] = useState<'white' | 'black' | 'red'>('white');
   const [selectedBanner, setSelectedBanner] = useState<1 | 2>(1);
 
-  const currentBanner = selectedBanner === 1 ? bannerUrl : bannerUrl2;
-
   const logoUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/4b823b5d-a184-4a4a-96fc-fca5a31524c2.jpg';
   const bannerUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/07058ba2-43c0-46c2-a3ba-b8ac51fb627d.jpg';
   const bannerUrl2 = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/ee1af8f9-2516-4aa5-a581-0281ec5b8c74.jpg';
+
+  const currentBanner = selectedBanner === 1 ? bannerUrl : bannerUrl2;
 
   const backgrounds = {
     white: 'bg-white',

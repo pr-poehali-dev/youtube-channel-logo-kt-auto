@@ -6,13 +6,14 @@ import AnimatedLogo from '@/components/AnimatedLogo';
 
 const Index = () => {
   const [selectedBg, setSelectedBg] = useState<'white' | 'black' | 'red'>('white');
-  const [selectedBanner, setSelectedBanner] = useState<1 | 2>(1);
+  const [selectedBanner, setSelectedBanner] = useState<1 | 2 | 3>(1);
 
   const logoUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/4b823b5d-a184-4a4a-96fc-fca5a31524c2.jpg';
   const bannerUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/07058ba2-43c0-46c2-a3ba-b8ac51fb627d.jpg';
   const bannerUrl2 = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/ee1af8f9-2516-4aa5-a581-0281ec5b8c74.jpg';
+  const bannerUrl3 = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/cfb767a1-77bb-4acc-a7ee-e690f3ca022d.jpg';
 
-  const currentBanner = selectedBanner === 1 ? bannerUrl : bannerUrl2;
+  const currentBanner = selectedBanner === 1 ? bannerUrl : selectedBanner === 2 ? bannerUrl2 : bannerUrl3;
 
   const backgrounds = {
     white: 'bg-white',
@@ -76,20 +77,27 @@ const Index = () => {
               <p className="text-gray-600 mb-4">
                 Широкоформатный баннер 2560×1440px для оформления канала. Выберите вариант:
               </p>
-              <div className="flex gap-3 mb-4">
+              <div className="flex gap-3 mb-4 flex-wrap">
                 <Button
                   variant={selectedBanner === 1 ? 'default' : 'outline'}
                   onClick={() => setSelectedBanner(1)}
                   className="hover-scale"
                 >
-                  Вариант 1
+                  Спортивный
                 </Button>
                 <Button
                   variant={selectedBanner === 2 ? 'default' : 'outline'}
                   onClick={() => setSelectedBanner(2)}
                   className="hover-scale"
                 >
-                  Вариант 2
+                  Динамичный
+                </Button>
+                <Button
+                  variant={selectedBanner === 3 ? 'default' : 'outline'}
+                  onClick={() => setSelectedBanner(3)}
+                  className="hover-scale"
+                >
+                  Техно
                 </Button>
               </div>
             </div>

@@ -7,6 +7,7 @@ const Index = () => {
   const [selectedBg, setSelectedBg] = useState<'white' | 'black' | 'red'>('white');
 
   const logoUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/4b823b5d-a184-4a4a-96fc-fca5a31524c2.jpg';
+  const bannerUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/07058ba2-43c0-46c2-a3ba-b8ac51fb627d.jpg';
 
   const backgrounds = {
     white: 'bg-white',
@@ -21,10 +22,60 @@ const Index = () => {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-red-600 to-black bg-clip-text text-transparent">
             K&T Auto Blog
           </h1>
-          <p className="text-xl text-gray-600">Логотип YouTube канала</p>
+          <p className="text-xl text-gray-600">Брендинг для YouTube канала</p>
         </header>
 
-        <div className="max-w-5xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-8">
+          <Card className="p-8 bg-white shadow-xl overflow-hidden">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                <Icon name="MonitorPlay" size={28} className="text-red-600" />
+                Шапка YouTube канала
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Широкоформатный баннер 2560×1440px для оформления канала
+              </p>
+            </div>
+
+            <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src={bannerUrl} 
+                alt="K&T Auto Blog YouTube Banner" 
+                className="w-full h-auto"
+              />
+            </div>
+
+            <div className="mt-6 grid md:grid-cols-3 gap-4">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="Monitor" size={18} className="text-red-600" />
+                <span>Десктоп: 2560×1440</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="Tv" size={18} className="text-red-600" />
+                <span>ТВ: безопасная зона</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="Smartphone" size={18} className="text-red-600" />
+                <span>Мобильные: адаптивно</span>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <a 
+                href={bannerUrl} 
+                download="KT-Auto-Blog-YouTube-Banner.jpg"
+                className="inline-block"
+              >
+                <Button 
+                  size="lg" 
+                  className="hover-scale font-bold w-full md:w-auto"
+                >
+                  <Icon name="Download" size={20} className="mr-2" />
+                  Скачать шапку YouTube
+                </Button>
+              </a>
+            </div>
+          </Card>
           <Card className="p-8 bg-white shadow-xl">
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -117,25 +168,41 @@ const Index = () => {
 
           <Card className="p-8 bg-gradient-to-br from-red-600 to-red-700 text-white shadow-xl">
             <div className="text-center">
-              <Icon name="Download" size={48} className="mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-3">Готово к использованию</h3>
+              <Icon name="PackageCheck" size={48} className="mx-auto mb-4" />
+              <h3 className="text-2xl font-bold mb-3">Полный брендинг готов</h3>
               <p className="text-lg mb-6">
-                Логотип создан в квадратном формате, идеально подходит для YouTube, социальных сетей и мерча
+                Логотип и шапка для YouTube в едином стиле. Скачайте оба файла и загрузите на канал!
               </p>
-              <a 
-                href={logoUrl} 
-                download="KT-Auto-Blog-Logo.jpg"
-                className="inline-block"
-              >
-                <Button 
-                  size="lg" 
-                  variant="secondary"
-                  className="hover-scale font-bold"
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href={logoUrl} 
+                  download="KT-Auto-Blog-Logo.jpg"
+                  className="inline-block"
                 >
-                  <Icon name="Download" size={20} className="mr-2" />
-                  Скачать логотип
-                </Button>
-              </a>
+                  <Button 
+                    size="lg" 
+                    variant="secondary"
+                    className="hover-scale font-bold w-full"
+                  >
+                    <Icon name="Download" size={20} className="mr-2" />
+                    Скачать логотип
+                  </Button>
+                </a>
+                <a 
+                  href={bannerUrl} 
+                  download="KT-Auto-Blog-YouTube-Banner.jpg"
+                  className="inline-block"
+                >
+                  <Button 
+                    size="lg" 
+                    variant="secondary"
+                    className="hover-scale font-bold w-full"
+                  >
+                    <Icon name="Download" size={20} className="mr-2" />
+                    Скачать баннер
+                  </Button>
+                </a>
+              </div>
             </div>
           </Card>
         </div>

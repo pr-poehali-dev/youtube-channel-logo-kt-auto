@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import AnimatedLogo from '@/components/AnimatedLogo';
 
 const Index = () => {
   const [selectedBg, setSelectedBg] = useState<'white' | 'black' | 'red'>('white');
@@ -30,6 +31,42 @@ const Index = () => {
         </header>
 
         <div className="max-w-6xl mx-auto space-y-8">
+          <Card className="p-8 bg-black shadow-xl overflow-hidden">
+            <div className="mb-6">
+              <h2 className="text-2xl font-bold mb-4 flex items-center gap-2 text-white">
+                <Icon name="Sparkles" size={28} className="text-red-600" />
+                Анимированное интро для видео
+              </h2>
+              <p className="text-gray-300 mb-4">
+                Динамичная анимация логотипа с эффектами скорости и свечения. Идеально для начала ваших видео!
+              </p>
+            </div>
+
+            <div className="bg-black rounded-lg overflow-hidden shadow-2xl min-h-[500px] relative">
+              <AnimatedLogo logoUrl={logoUrl} />
+            </div>
+
+            <div className="mt-6 grid md:grid-cols-3 gap-4">
+              <div className="flex items-center gap-2 text-sm text-gray-300">
+                <Icon name="Clock" size={18} className="text-red-600" />
+                <span>Длительность: ~3 секунды</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-300">
+                <Icon name="Zap" size={18} className="text-red-600" />
+                <span>Эффекты: скорость + свечение</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-300">
+                <Icon name="Video" size={18} className="text-red-600" />
+                <span>Формат: HTML5 анимация</span>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-gray-900 rounded-lg">
+              <p className="text-sm text-gray-300 mb-2">
+                <strong className="text-white">Как использовать:</strong> Запишите экран браузера с помощью OBS Studio или подобных программ во время воспроизведения анимации.
+              </p>
+            </div>
+          </Card>
           <Card className="p-8 bg-white shadow-xl overflow-hidden">
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">

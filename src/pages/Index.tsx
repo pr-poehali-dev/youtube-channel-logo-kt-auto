@@ -5,9 +5,13 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [selectedBg, setSelectedBg] = useState<'white' | 'black' | 'red'>('white');
+  const [selectedBanner, setSelectedBanner] = useState<1 | 2>(1);
+
+  const currentBanner = selectedBanner === 1 ? bannerUrl : bannerUrl2;
 
   const logoUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/4b823b5d-a184-4a4a-96fc-fca5a31524c2.jpg';
   const bannerUrl = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/07058ba2-43c0-46c2-a3ba-b8ac51fb627d.jpg';
+  const bannerUrl2 = 'https://cdn.poehali.dev/projects/85206502-de53-4320-8c76-2f45b374ac33/files/ee1af8f9-2516-4aa5-a581-0281ec5b8c74.jpg';
 
   const backgrounds = {
     white: 'bg-white',
@@ -33,15 +37,31 @@ const Index = () => {
                 Шапка YouTube канала
               </h2>
               <p className="text-gray-600 mb-4">
-                Широкоформатный баннер 2560×1440px для оформления канала
+                Широкоформатный баннер 2560×1440px для оформления канала. Выберите вариант:
               </p>
+              <div className="flex gap-3 mb-4">
+                <Button
+                  variant={selectedBanner === 1 ? 'default' : 'outline'}
+                  onClick={() => setSelectedBanner(1)}
+                  className="hover-scale"
+                >
+                  Вариант 1
+                </Button>
+                <Button
+                  variant={selectedBanner === 2 ? 'default' : 'outline'}
+                  onClick={() => setSelectedBanner(2)}
+                  className="hover-scale"
+                >
+                  Вариант 2
+                </Button>
+              </div>
             </div>
 
             <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
               <img 
-                src={bannerUrl} 
+                src={currentBanner} 
                 alt="K&T Auto Blog YouTube Banner" 
-                className="w-full h-auto"
+                className="w-full h-auto transition-opacity duration-300"
               />
             </div>
 
@@ -62,8 +82,8 @@ const Index = () => {
 
             <div className="mt-6">
               <a 
-                href={bannerUrl} 
-                download="KT-Auto-Blog-YouTube-Banner.jpg"
+                href={currentBanner} 
+                download={`KT-Auto-Blog-YouTube-Banner-V${selectedBanner}.jpg`}
                 className="inline-block"
               >
                 <Button 
@@ -71,7 +91,7 @@ const Index = () => {
                   className="hover-scale font-bold w-full md:w-auto"
                 >
                   <Icon name="Download" size={20} className="mr-2" />
-                  Скачать шапку YouTube
+                  Скачать вариант {selectedBanner}
                 </Button>
               </a>
             </div>
